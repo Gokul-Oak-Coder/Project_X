@@ -7,6 +7,8 @@ import android.content.SharedPreferences
 import android.widget.Toast
 import android.content.res.Configuration
 import android.os.Build
+import android.view.View
+import com.google.android.material.snackbar.Snackbar
 import java.util.*
 
 class ViewUtils {
@@ -28,8 +30,6 @@ class ViewUtils {
                 startActivity(it)
             }
         }
-
-
         fun setLocale(context: Context, language: String) {
             val locale = Locale(language)
             Locale.setDefault(locale)
@@ -45,7 +45,22 @@ class ViewUtils {
             val languageCode = PreferenceUtil.loadLanguage(context)
             setLocale(context, languageCode)
         }
-
+        fun View.snackBar(message: String) {
+            Snackbar.make(this, message, Snackbar.LENGTH_LONG).also { snackbar ->
+                snackbar.setAction("Ok") {
+                    snackbar.dismiss()
+                }
+            }.show()
+        }
+        fun View.snackbar(message: String, action: (() -> Unit)? = null) {
+            val snackbar = Snackbar.make(this, message, Snackbar.LENGTH_LONG)
+            action?.let {
+                snackbar.setAction("Retry") {
+                    it()
+                }
+            }
+            snackbar.show()
+        }
     }
 
 }

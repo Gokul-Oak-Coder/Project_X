@@ -10,23 +10,25 @@ import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import com.example.projectx.R
 import com.example.projectx.databinding.ActivityLogInBinding
+import com.example.projectx.network.NetworkHelper
 import com.example.projectx.network.Resource
 import com.example.projectx.network.RetrofitInstance
 import com.example.projectx.repository.LoginRepository
 import com.example.projectx.requests.LoginRequest
-import com.example.projectx.util.NetworkUtils
 import com.example.projectx.util.ViewUtils.Companion.startActivity
-import com.example.projectx.util.ViewUtils.Companion.startNewActivity
 import com.example.projectx.util.ViewUtils.Companion.toast
 import com.example.projectx.viewmodel.LoginViewModel
 import com.example.projectx.viewmodel.LoginViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 
 class LogInActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLogInBinding
 
+    private val networkHelper = NetworkHelper(this)
+
     private val loginViewModel: LoginViewModel by viewModels {
-        LoginViewModelFactory(LoginRepository(RetrofitInstance.api))
+        LoginViewModelFactory(networkHelper,LoginRepository(RetrofitInstance.api))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,7 +93,12 @@ class LogInActivity : AppCompatActivity() {
                             // Hide loading spinner and show error message
                             binding.loadingProgressBar.visibility = View.GONE
                             binding.loginBtn.isEnabled = true
-                            this.toast("Error: ${resource.message}")
+                            if(resource.message == "No Internet connection") {
+                                resource.message.let { showSnackbar(it) }
+                            }
+                            else{
+                                this.toast("Error: ${resource.message}")
+                            }
 
                         }
 
@@ -104,5 +111,13 @@ class LogInActivity : AppCompatActivity() {
             startActivity(SignUpActivity::class.java)
             finish()
         }
+    }
+    private fun showSnackbar(message: String) {
+        Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG).also {snackbar ->
+            snackbar.setAction("ok"){
+                snackbar.dismiss()
+            }
+
+        }.show()
     }
 }
