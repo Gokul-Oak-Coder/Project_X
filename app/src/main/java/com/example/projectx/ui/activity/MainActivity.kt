@@ -1,23 +1,13 @@
 package com.example.projectx.ui.activity
 
-import android.annotation.SuppressLint
-import android.content.Intent
-import android.content.pm.ShortcutInfo
-import android.content.pm.ShortcutManager
-import android.graphics.drawable.Icon
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import com.example.projectx.R
 import com.example.projectx.databinding.ActivityMainBinding
 import com.example.projectx.util.PreferenceUtil
 import com.example.projectx.util.ViewUtils
 import com.example.projectx.util.ViewUtils.Companion.loadLocale
-import java.util.Arrays
 
 
 class MainActivity : AppCompatActivity() {

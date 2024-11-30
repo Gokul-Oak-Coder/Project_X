@@ -25,7 +25,8 @@
             android:thumb="@drawable/thumb"
             android:track="@drawable/track"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         <!-- ImageView on the right -->
         <androidx.appcompat.widget.AppCompatImageView
