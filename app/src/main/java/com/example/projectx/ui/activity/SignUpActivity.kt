@@ -12,12 +12,14 @@ import androidx.lifecycle.Observer
 import com.example.projectx.R
 import com.example.projectx.databinding.ActivityMainBinding
 import com.example.projectx.databinding.ActivitySignUpBinding
+import com.example.projectx.network.NetworkHelper
 import com.example.projectx.network.Resource
 import com.example.projectx.network.RetrofitInstance
 import com.example.projectx.repository.LoginRepository
 import com.example.projectx.repository.RegisterRepository
 import com.example.projectx.requests.LoginRequest
 import com.example.projectx.requests.RegisterRequest
+import com.example.projectx.util.ViewUtils.Companion.snackBar
 import com.example.projectx.util.ViewUtils.Companion.startActivity
 import com.example.projectx.util.ViewUtils.Companion.startNewActivity
 import com.example.projectx.util.ViewUtils.Companion.toast
@@ -25,12 +27,14 @@ import com.example.projectx.viewmodel.LoginViewModel
 import com.example.projectx.viewmodel.LoginViewModelFactory
 import com.example.projectx.viewmodel.RegisterViewModel
 import com.example.projectx.viewmodel.RegisterViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
+    private val networkHelper = NetworkHelper(this)
 
     private val registerViewModel: RegisterViewModel by viewModels {
-        RegisterViewModelFactory(RegisterRepository(RetrofitInstance.api))
+        RegisterViewModelFactory(networkHelper,RegisterRepository(RetrofitInstance.api))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,10 +67,12 @@ class SignUpActivity : AppCompatActivity() {
                         is Resource.Loading -> {
                             // Show loading spinner
                             binding.loadingProgressBar.visibility = View.VISIBLE
+                            binding.registerBtn.isEnabled = false
                         }
 
                         is Resource.Success -> {
                             binding.loadingProgressBar.visibility = View.GONE
+                            binding.registerBtn.isEnabled = true
                             if (resource.data?.status == 200) {
                                 this.toast("Login Successful: ${resource.data.message}")
                                 startActivity(LogInActivity::class.java)
@@ -80,7 +86,12 @@ class SignUpActivity : AppCompatActivity() {
                         is Resource.Error -> {
                             // Hide loading spinner and show error message
                             binding.loadingProgressBar.visibility = View.GONE
-                            this.toast("Error: ${resource.message}")
+                            binding.registerBtn.isEnabled = true
+                            if(resource.message == "No Internet connection") {
+                                resource.message.let { showSnackbar(it) }
+                            }else{
+                                this.toast("Error: ${resource.message}")
+                            }
                         }
 
                         else -> {}
@@ -93,5 +104,13 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(LogInActivity::class.java)
             finish()
         }
+    }
+    private fun showSnackbar(message: String) {
+        Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG).also {snackbar ->
+            snackbar.setAction("ok"){
+                snackbar.dismiss()
+            }
+
+        }.show()
     }
 }
