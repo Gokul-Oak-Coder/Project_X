@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--App name-->
+    <string name="app_name" translatable="false">प्रोजेक्टX</string>
+
+    <!--Hints-->
+    <string name="username">उपयोगकर्ता नाम</string>
+    <string name="password">पासवर्ड</string>
+    <string name="firstname">पहला नाम</string>
+    <string name="lastname">अंतिम नाम</string>
+    <string name="email">ईमेल</string>
+
+    <!--TextViews-->
+    <string name="greeting">स्वागत है!</string>
+    <string name="forgetPassword">क्या पासवर्ड भूल गए?</string>
+    <string name="noAccount">क्या आपके पास खाता नहीं है?</string>
+    <string name="haveAccount">क्या आपके पास पहले से खाता है?</string>
+    <string name="login">लॉग इन करें</string>
+    <string name="signup">साइन अप करें</string>
+    <string name="reset">यहाँ रीसेट करें</string>
+
+    <!--Buttons-->
+    <string name="loginBtn">लॉग इन करें</string>
+    <string name="signupBtn">साइन अप करें</string>
+    <string name="getStarted">शुरू करें</string>
+
+    <!--Toast-->
+    <string name="fields_empty_error">फील्ड्स खाली नहीं होनी चाहिए</string>
+
+    <!--Error-->
+    <string name="username_empty_error">*कृपया यूज़रनेम दर्ज करें</string>
+    <string name="password_empty_error">*कृपया पासवर्ड दर्ज करें</string>
+</resources>

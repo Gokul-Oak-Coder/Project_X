@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--App name-->
+    <string name="app_name" translatable="false">ProyectoX</string>
+
+    <!--Hints-->
+    <string name="username">Nombre de usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="firstname">Primer nombre</string>
+    <string name="lastname">Apellido</string>
+    <string name="email">Correo electrónico</string>
+
+    <!--TextViews-->
+    <string name="greeting">¡Bienvenido!</string>
+    <string name="forgetPassword">¿Olvidaste tu contraseña?</string>
+    <string name="noAccount">¿No tienes cuenta aún?</string>
+    <string name="haveAccount">¿Ya tienes una cuenta?</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="signup">Registrarse</string>
+    <string name="reset">Restablecer aquí</string>
+
+    <!--Buttons-->
+    <string name="loginBtn">Iniciar sesión</string>
+    <string name="signupBtn">Registrarse</string>
+    <string name="getStarted">Comenzar</string>
+
+    <!--Toast-->
+    <string name="fields_empty_error">Los campos no deben estar vacíos</string>
+
+    <!--Error-->
+    <string name="username_empty_error">*por favor ingresa el nombre de usuario</string>
+    <string name="password_empty_error">*por favor ingresa la contraseña</string>
+</resources>

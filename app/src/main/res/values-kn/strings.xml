@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--App name-->
+    <string name="app_name" translatable="false">ಪ್ರಾಜೆಕ್ಟ್X</string>
+
+    <!--Hints-->
+    <string name="username">ಬಳಕೆದಾರ ಹೆಸರು</string>
+    <string name="password">ಪಾಸ್ವರ್ಡ್</string>
+    <string name="firstname">ಪ್ರಥಮ ಹೆಸರು</string>
+    <string name="lastname">ಅಂತಿಮ ಹೆಸರು</string>
+    <string name="email">ಇಮೇಲ್</string>
+
+    <!--TextViews-->
+    <string name="greeting">ಸ್ವಾಗತ!</string>
+    <string name="forgetPassword">ಪಾಸ್ವರ್ಡ್ ಮರೆಯಿದ್ದೀರಾ?</string>
+    <string name="noAccount">ಇಲ್ಲಿಯವರೆಗೆ ಖಾತೆ ಇಲ್ಲವೇ?</string>
+    <string name="haveAccount">ನೀವು ಖಾತೆ ಹೊಂದಿದ್ದೀರಾ?</string>
+    <string name="login">ಲಾಗಿನ್</string>
+    <string name="signup">ಸೈನ್ ಅಪ್</string>
+    <string name="reset">ಇಲ್ಲಿ ಮರುಹೊಂದಿಸಲು</string>
+
+    <!--Buttons-->
+    <string name="loginBtn">ಲಾಗಿನ್ ಮಾಡಿ</string>
+    <string name="signupBtn">ಸೈನ್ ಅಪ್ ಮಾಡಿ</string>
+    <string name="getStarted">ಆರಂಭಿಸಿ</string>
+
+    <!--Toast-->
+    <string name="fields_empty_error">ಕ್ಷೇತ್ರಗಳನ್ನು ಖಾಲಿಯಾಗಿಡಬಾರದು</string>
+
+    <!--Error-->
+    <string name="username_empty_error">*ದಯವಿಟ್ಟು ಬಳಕೆದಾರನಾಮವನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="password_empty_error">*ದಯವಿಟ್ಟು ಗುಪ್ತಪದವನ್ನು ನಮೂದಿಸಿ</string>
+</resources>

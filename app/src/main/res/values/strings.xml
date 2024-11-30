@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--App name-->
+    <string name="app_name" translatable="false">ProjectX</string>
+
+    <!--Hints-->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="firstname">Firstname</string>
+    <string name="lastname">Lastname</string>
+    <string name="email">Email</string>
+
+    <!--TextViews-->
+    <string name="greeting">Welcome! </string>
+    <string name="forgetPassword">Forget Password? </string>
+    <string name="noAccount">Don\'t have an Account yet? </string>
+    <string name="haveAccount">Already have an account? </string>
+    <string name="login">LogIn</string>
+    <string name="signup">SignUp</string>
+    <string name="reset">Reset Here</string>
+
+    <!--Buttons-->
+    <string name="loginBtn">Log In</string>
+    <string name="signupBtn">Sign Up</string>
+    <string name="getStarted">Get Started</string>
+
+    <!--toast-->
+    <string name="fields_empty_error">Fields should not be empty</string>
+
+    <!--Error-->
+    <string name="username_empty_error">*please enter the username</string>
+    <string name="password_empty_error">*please enter the password</string>
+
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--App name-->
+    <string name="app_name" translatable="false">പ്രോജക്ട്X</string>
+
+    <!--Hints-->
+    <string name="username">ഉപയോക്താവിന്റെ പേര്</string>
+    <string name="password">പാസ്വേഡ്</string>
+    <string name="firstname">ആദ്യനാമം</string>
+    <string name="lastname">അവസാന നാമം</string>
+    <string name="email">ഇമെയിൽ</string>
+
+    <!--TextViews-->
+    <string name="greeting">സ്വാഗതം!</string>
+    <string name="forgetPassword">പാസ്വേഡ് മറന്നോ?</string>
+    <string name="noAccount">ഇപ്പോൾ അക്കൗണ്ട് ഇല്ലേ?</string>
+    <string name="haveAccount">ഇപ്പോൾ അക്കൗണ്ട് ഉണ്ടോ?</string>
+    <string name="login">ലോഗിൻ ചെയ്യുക</string>
+    <string name="signup">സൈൻ അപ്പ് ചെയ്യുക</string>
+    <string name="reset">ഇവിടെ റീസെറ്റ് ചെയ്യുക</string>
+
+    <!--Buttons-->
+    <string name="loginBtn">ലോഗിൻ ചെയ്യുക</string>
+    <string name="signupBtn">സൈൻ അപ്പ് ചെയ്യുക</string>
+    <string name="getStarted">ആരംഭിക്കുക</string>
+
+    <!--Toast-->
+    <string name="fields_empty_error">പദ്യങ്ങൾ ശൂന്യമായിരിക്കരുത്</string>
+
+    <!--Error-->
+    <string name="username_empty_error">*ദയവായി യൂസർനെയിം നൽകുക</string>
+    <string name="password_empty_error">*ദയവായി പാസ്വേഡ് നൽകുക</string>
+</resources>
