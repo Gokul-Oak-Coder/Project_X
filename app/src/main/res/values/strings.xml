@@ -31,4 +31,10 @@
     <string name="username_empty_error">*please enter the username</string>
     <string name="password_empty_error">*please enter the password</string>
 
+    <!--for long press shortcut menu -->
+    <string name="shortcut_request" translatable="false">Please give us a chance to improvise</string>
+    <string name="request" translatable="false">request</string>
+    <string name="navigate_main" translatable="false">MainActivity</string>
+    <string name="navigate_login" translatable="false">LoginActivity</string>
+
 </resources>

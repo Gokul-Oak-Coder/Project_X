@@ -27,6 +27,8 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashScreenBinding
 
+    @SuppressLint("WrongThread")
+    @RequiresApi(Build.VERSION_CODES.N_MR1)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -39,13 +41,28 @@ class SplashScreenActivity : AppCompatActivity() {
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Shortcut Manager for managing the shortcuts
+        var shortcutManager = getSystemService(ShortcutManager::class.java)
 
-        /*Handler(Looper.getMainLooper()).postDelayed({
-          //  this.startNewActivity(LogInActivity::class.java)
-            startNewActivity(LogInActivity::class.java)
-            finish()
+        if (shortcutManager != null) {
+            // Defining a shortcut, Shortcut 1
+            var shortcut1 = ShortcutInfo.Builder(applicationContext, "ID1")
+                .setShortLabel("Instagram")
+                .setIcon(Icon.createWithResource(applicationContext, R.drawable.projectx))
+                .setIntent(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com")))
+                .build()
 
-        }, SPLASH_TIME)*/
+            // Defining a shortcut, Shortcut 2
+            var shortcut2 = ShortcutInfo.Builder(applicationContext, "ID2")
+                .setShortLabel("AskFM")
+                .setIcon(Icon.createWithResource(applicationContext, R.drawable.projectx))
+                .setIntent(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.ask.fm")))
+                .build()
+
+            // Show list of shortcuts when held
+            shortcutManager.dynamicShortcuts = listOf(shortcut1, shortcut2)
+        }
+
         binding.getStartBtn.setOnClickListener {
             startActivity(LogInActivity::class.java)
             finish()

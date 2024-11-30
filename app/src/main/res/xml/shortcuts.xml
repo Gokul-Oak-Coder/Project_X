@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Shortcut 1:
+    Navigates the user to MainActivity through the intent -->
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/andro"
+        android:shortcutId="compose0"
+        android:shortcutShortLabel="@string/shortcut_request">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.example.projectx.ui.activity.SplashScreenActivity"
+            android:targetPackage="com.example.projectx" />
+    </shortcut>
+
+    <!-- Shortcut 2:
+    Navigates the user to Activity1 through the intent -->
+   <shortcut
+        android:enabled="true"
+        android:icon="@drawable/projectx"
+        android:shortcutId="compose1"
+        android:shortcutShortLabel="@string/navigate_main">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.example.projectx.ui.activity.MainActivity"
+            android:targetPackage="com.example.projectx" />
+    </shortcut>
+
+</shortcuts>
