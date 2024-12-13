@@ -9,6 +9,8 @@
     <string name="firstname">మొదటి పేరు</string>
     <string name="lastname">చివరి పేరు</string>
     <string name="email">ఇమెయిల్</string>
+    <string name="resetPass">మీ యూజర్ నామం నమోదు చేయండి</string>
+    <string name="resetpass1">నమోదైన ఇమెయిల్ ను నమోదు చేయండి</string>
 
     <!--TextViews-->
     <string name="greeting">స్వాగతం!</string>
@@ -18,11 +20,15 @@
     <string name="login">లాగిన్</string>
     <string name="signup">సైన్ అప్</string>
     <string name="reset">ఇక్కడ రీసెట్ చేయండి</string>
+    <string name="forgotUsername">యూజర్‌నేమ్ గుర్తించలేదా?</string>
+    <string name="enterEmail">ఇమెయిల్ నమోదు చేయండి</string>
 
     <!--Buttons-->
     <string name="loginBtn">లాగిన్ చేయండి</string>
     <string name="signupBtn">సైన్ అప్ చేయండి</string>
     <string name="getStarted">ప్రారంభించండి</string>
+    <string name="submit">సబ్మిట్ చేయండి</string>
+    <string name="resetPasswordBtn">పాస్వర్డ్ రీసెట్ చేయండి</string>
 
     <!--Toast-->
     <string name="fields_empty_error">ఫీల్డ్స్ ఖాళీగా ఉండకూడదు</string>
@@ -30,4 +36,11 @@
     <!--Error-->
     <string name="username_empty_error">*యూజర్‌నేమ్‌ని ఎంటర్ చేయండి</string>
     <string name="password_empty_error">*పాస్వర్డ్‌ని ఎంటర్ చేయండి</string>
+    <string name="email_empty_error">*ఇమెయిల్ నమోదు చేయండి</string>
+    <string name="confirm_password_empty_error">*దయచేసి నిర్ధారించు పాస్‌వర్డ్‌ను నమోదు చేయండి</string>
+    <string name="shortcut_request">దయచేసి మాకు మెరుగుపరచే అవకాశాన్ని ఇవ్వండి</string>
+    <string name="request">అనురోధం</string>
+    <string name="navigate_main">ప్రధాన కార్యకలాపం</string>
+    <string name="navigate_login">లాగిన్ కార్యకలాపం</string>
+
 </resources>

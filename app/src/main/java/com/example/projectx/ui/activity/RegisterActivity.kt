@@ -14,6 +14,7 @@ import com.example.projectx.network.Resource
 import com.example.projectx.repository.AuthRepository
 import com.example.projectx.requests.LoginRequest
 import com.example.projectx.requests.RegisterRequest
+import com.example.projectx.util.ViewUtils.Companion.showCustomToast
 import com.example.projectx.util.ViewUtils.Companion.startActivity
 import com.example.projectx.util.ViewUtils.Companion.toast
 import com.example.projectx.viewmodel.AuthViewModel
@@ -94,14 +95,14 @@ class RegisterActivity : AppCompatActivity() {
                     binding.registerBtn.isEnabled = true
                     startActivity(LogInActivity::class.java)
                     finish()
-                    this.toast("${resource.data?.message}")
+                    this.showCustomToast("${resource.data?.message}", R.drawable.success, R.color.success_green)
                 }
 
                 is Resource.Error -> {
                     // Hide loading spinner and show error message
                     binding.loadingProgressBar.visibility = View.GONE
                     binding.registerBtn.isEnabled = true
-                    this.toast("${resource.message}")
+                    this.showCustomToast("${resource.message}", R.drawable.error, R.color.error_red)
                 }
 
                 else -> {}

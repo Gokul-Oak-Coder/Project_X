@@ -1,11 +1,14 @@
 package com.example.projectx.ui.activity
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +18,7 @@ import com.example.projectx.network.NetworkHelper
 import com.example.projectx.network.Resource
 import com.example.projectx.repository.AuthRepository
 import com.example.projectx.requests.LoginRequest
+import com.example.projectx.util.ViewUtils.Companion.showCustomToast
 import com.example.projectx.util.ViewUtils.Companion.startActivity
 import com.example.projectx.util.ViewUtils.Companion.toast
 import com.example.projectx.viewmodel.AuthViewModel
@@ -107,7 +111,7 @@ class LogInActivity : AppCompatActivity() {
                     // Hide loading spinner and show success message
                     binding.loadingProgressBar.visibility = View.GONE
                     binding.loginBtn.isEnabled = true
-                    this.toast("${resource.data?.message}")
+                    this.showCustomToast("${resource.data?.message}", R.drawable.success, R.color.success_green)
                     this.startActivity(MainActivity::class.java)
                     intent.putExtra("user", username)
                     finish()
@@ -117,7 +121,8 @@ class LogInActivity : AppCompatActivity() {
                     // Hide loading spinner and show error message
                     binding.loadingProgressBar.visibility = View.GONE
                     binding.loginBtn.isEnabled = true
-                    this.toast("${resource.message}")
+                    this.showCustomToast("${resource.message}", R.drawable.error, R.color.error_red)
+                   // this.toast("${resource.message}")
 
 
                 }
@@ -126,4 +131,21 @@ class LogInActivity : AppCompatActivity() {
             }
         })
     }
+   /* private fun showCustomToast(message: String) {
+        // Inflate the custom layout
+        val inflater = layoutInflater
+        val layout = inflater.inflate(R.layout.custom_toast, findViewById(com.google.android.material.R.id.container))
+
+        // Set the message in the TextView
+        val textView = layout.findViewById<TextView>(R.id.toast_message)
+        textView.text = message
+
+        // Create a new Toast and set the custom layout
+        val toast = Toast(applicationContext)
+        toast.duration = Toast.LENGTH_LONG
+        toast.view = layout
+
+        // Show the custom toast
+        toast.show()
+    }*/
 }

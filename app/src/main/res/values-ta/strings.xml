@@ -9,6 +9,8 @@
     <string name="firstname">முதல்பெயர்</string>
     <string name="lastname">கடைசிப் பெயர்</string>
     <string name="email">இமெயில்</string>
+    <string name="resetPass">உங்கள் பயனர் பெயரை உள்ளிடவும்</string>
+    <string name="resetpass1">பதிவு செய்யப்பட்ட மின்னஞ்சலை உள்ளிடவும்</string>
 
     <!--TextViews-->
     <string name="greeting">வரவேற்கின்றேன்!</string>
@@ -18,11 +20,15 @@
     <string name="login">உள்நுழையவும்</string>
     <string name="signup">புதிய கணக்கு உருவாக்கவும்</string>
     <string name="reset">மீட்டமைக்கவும்</string>
+    <string name="forgotUsername">பயனர் பெயரை நினைவூட்ட முடியவில்லை?</string>
+    <string name="enterEmail">மின்னஞ்சலை உள்ளிடவும்</string>
 
     <!--Buttons-->
     <string name="loginBtn">உள்நுழையவும்</string>
     <string name="signupBtn">புதிய கணக்கு உருவாக்கவும்</string>
     <string name="getStarted">துவங்குங்கள்</string>
+    <string name="submit">சமர்ப்பிக்கவும்</string>
+    <string name="resetPasswordBtn">பாஸ்வர்டை மீட்டமைக்கவும்</string>
 
     <!--Toast-->
     <string name="fields_empty_error">புலங்கள் காலியாக இருக்கக்கூடாது</string>
@@ -30,5 +36,10 @@
     <!--Error-->
     <string name="username_empty_error">*பயர்பதிவு எண்களை எடுக்கவும்</string>
     <string name="password_empty_error">*பாஸ்வேர்டு எடுக்கவும்</string>
-
+    <string name="email_empty_error">*மின்னஞ்சலை உள்ளிடவும்</string>
+    <string name="confirm_password_empty_error">*உறுதி கடவுச்சொல் உள்ளிடவும்</string>
+    <string name="shortcut_request">தயவுசெய்து நமக்கு மேம்படுத்த ஒரு வாய்ப்பு கொடுங்கள்</string>
+    <string name="request">விண்ணப்பம்</string>
+    <string name="navigate_main">பிரதான செயலி</string>
+    <string name="navigate_login">உள்நுழைவு செயலி</string>
 </resources>
