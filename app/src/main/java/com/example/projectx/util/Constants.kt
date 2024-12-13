@@ -7,7 +7,7 @@ class Constants {
         //for splash screen
         const val SPLASH_TIME = 2000L
 
-        //for preferences
+        //for SharedPreferences
         const val PREF_NAME = "language_pref"
         const val KEY_LANGUAGE = "language_key"
     }

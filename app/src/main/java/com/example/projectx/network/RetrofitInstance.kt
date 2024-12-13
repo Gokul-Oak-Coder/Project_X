@@ -86,7 +86,8 @@ class RetrofitInstance {
             logging.setLevel(HttpLoggingInterceptor.Level.BODY)
 
             // Use unsafe client if needed (for self-signed certificates, etc.)
-            val client = getUnsafeOkHttpClient()
+            //val client = getUnsafeOkHttpClient()
+            val client = OkHttpClient.Builder()
                 .addInterceptor(logging)
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .readTimeout(30, TimeUnit.SECONDS)
