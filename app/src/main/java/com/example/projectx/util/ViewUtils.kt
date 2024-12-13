@@ -6,8 +6,15 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.widget.Toast
 import android.content.res.Configuration
+import android.graphics.Color
 import android.os.Build
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.TextView
+import android.widget.Toast.LENGTH_SHORT
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatTextView
+import com.example.projectx.R
 import com.google.android.material.snackbar.Snackbar
 import java.util.*
 
@@ -60,6 +67,24 @@ class ViewUtils {
                 }
             }
             snackbar.show()
+        }
+        fun Context.showCustomToast(message: String, icon: Int, textColor: Int) {
+
+            val inflater = LayoutInflater.from(this)
+            val layout = inflater.inflate(R.layout.custom_toast, null)
+
+            val textView : TextView = layout.findViewById(R.id.toast_message)
+            textView.setTextColor(textColor)
+            textView.text = message
+
+
+            val imageView: AppCompatImageView = layout.findViewById(R.id.toast_icon)
+            imageView.setImageResource(icon)
+
+            val toast = Toast(this)
+            toast.view = layout
+            toast.duration = LENGTH_SHORT
+            toast.show()
         }
     }
 

@@ -20,6 +20,7 @@ import com.example.projectx.repository.AuthRepository
 import com.example.projectx.requests.ForgotPasswordRequest
 import com.example.projectx.requests.LoginRequest
 import com.example.projectx.requests.PasswordUpdateRequest
+import com.example.projectx.util.ViewUtils.Companion.showCustomToast
 import com.example.projectx.util.ViewUtils.Companion.startActivity
 import com.example.projectx.util.ViewUtils.Companion.toast
 import com.example.projectx.viewmodel.AuthViewModel
@@ -195,7 +196,7 @@ class PasswordResetActivity : AppCompatActivity() {
                     // Hide loading spinner and show success message
                     binding.loadingProgressBar.visibility = View.GONE
                     binding.submitBtn.isEnabled = false
-                    this.toast("${resource.data?.message}")
+                    this.showCustomToast("${resource.data?.message}", R.drawable.success, R.color.success_green)
 
                 }
 
@@ -203,7 +204,7 @@ class PasswordResetActivity : AppCompatActivity() {
                     // Hide loading spinner and show error message
                     binding.loadingProgressBar.visibility = View.GONE
                     binding.submitBtn.isEnabled = true
-                    this.toast("${resource.message}")
+                    this.showCustomToast("${resource.message}", R.drawable.error, R.color.error_red)
 
 
                 }
@@ -233,7 +234,7 @@ class PasswordResetActivity : AppCompatActivity() {
                     // Hide loading spinner and show success message
                     binding.loadingProgressBar.visibility = View.GONE
                     binding.resetPasswordBtn.isEnabled = false
-                    this.toast("${resource.data?.message}")
+                    this.showCustomToast("${resource.data?.message}", R.drawable.success, R.color.success_green)
                     this.startActivity(LogInActivity::class.java)
                     finish()
                 }
@@ -242,7 +243,7 @@ class PasswordResetActivity : AppCompatActivity() {
                     // Hide loading spinner and show error message
                     binding.loadingProgressBar.visibility = View.GONE
                     binding.resetPasswordBtn.isEnabled = true
-                    this.toast("${resource.message}")
+                    this.showCustomToast("${resource.message}", R.drawable.error, R.color.error_red)
                 }
 
                 else -> {}

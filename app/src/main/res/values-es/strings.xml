@@ -9,6 +9,8 @@
     <string name="firstname">Primer nombre</string>
     <string name="lastname">Apellido</string>
     <string name="email">Correo electrónico</string>
+    <string name="resetPass">Ingrese su nombre de usuario</string>
+    <string name="resetpass1">Ingrese el correo electrónico registrado</string>
 
     <!--TextViews-->
     <string name="greeting">¡Bienvenido!</string>
@@ -18,11 +20,15 @@
     <string name="login">Iniciar sesión</string>
     <string name="signup">Registrarse</string>
     <string name="reset">Restablecer aquí</string>
+    <string name="forgotUsername">¿No recuerdas tu nombre de usuario?</string>
+    <string name="enterEmail">Ingrese el correo electrónico</string>
 
     <!--Buttons-->
     <string name="loginBtn">Iniciar sesión</string>
     <string name="signupBtn">Registrarse</string>
     <string name="getStarted">Comenzar</string>
+    <string name="submit">Enviar</string>
+    <string name="resetPasswordBtn">Restablecer la contraseña</string>
 
     <!--Toast-->
     <string name="fields_empty_error">Los campos no deben estar vacíos</string>
@@ -30,4 +36,10 @@
     <!--Error-->
     <string name="username_empty_error">*por favor ingresa el nombre de usuario</string>
     <string name="password_empty_error">*por favor ingresa la contraseña</string>
+    <string name="email_empty_error">*por favor ingrese el correo electrónico</string>
+    <string name="confirm_password_empty_error">*por favor ingrese la contraseña de confirmación</string>
+    <string name="shortcut_request">Por favor, danos la oportunidad de mejorar</string>
+    <string name="request">solicitar</string>
+    <string name="navigate_main">Actividad Principal</string>
+    <string name="navigate_login">Actividad de inicio de sesión</string>
 </resources>

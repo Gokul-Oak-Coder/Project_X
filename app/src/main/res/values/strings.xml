@@ -21,30 +21,30 @@
     <string name="login">LogIn</string>
     <string name="signup">SignUp</string>
     <string name="reset">Reset Here</string>
-    <string name="forgotUsername" translatable="false">Don\'t remember username?</string>
-    <string name="enterEmail" translatable="false">Enter email</string>
+    <string name="forgotUsername">Don\'t remember username?</string>
+    <string name="enterEmail">Enter email</string>
 
     <!--Buttons-->
     <string name="loginBtn">Log In</string>
     <string name="signupBtn">Sign Up</string>
     <string name="getStarted">Get Started</string>
-    <string name="submit" translatable="false">Submit</string>
-    <string name="resetPasswordBtn" translatable="false">Reset Password</string>
+    <string name="submit">Submit</string>
+    <string name="resetPasswordBtn">Reset Password</string>
 
     <!--toast-->
     <string name="fields_empty_error">Fields should not be empty</string>
 
     <!--Error-->
     <string name="username_empty_error">*please enter the username</string>
-    <string name="email_empty_error" translatable="false">*please enter the email</string>
+    <string name="email_empty_error">*please enter the email</string>
     <string name="password_empty_error">*please enter the password</string>
-    <string name="confirm_password_empty_error" translatable="false">*please enter the confirm password</string>
+    <string name="confirm_password_empty_error">*please enter the confirm password</string>
 
 
     <!--for long press shortcut menu -->
-    <string name="shortcut_request" translatable="false">Please give us a chance to improvise</string>
-    <string name="request" translatable="false">request</string>
-    <string name="navigate_main" translatable="false">MainActivity</string>
-    <string name="navigate_login" translatable="false">LoginActivity</string>
+    <string name="shortcut_request">Please give us a chance to improvise</string>
+    <string name="request">request</string>
+    <string name="navigate_main">MainActivity</string>
+    <string name="navigate_login">LoginActivity</string>
 
 </resources>

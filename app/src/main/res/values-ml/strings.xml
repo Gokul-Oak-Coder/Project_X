@@ -9,6 +9,8 @@
     <string name="firstname">ആദ്യനാമം</string>
     <string name="lastname">അവസാന നാമം</string>
     <string name="email">ഇമെയിൽ</string>
+    <string name="resetPass">നിങ്ങളുടെ ഉപയോക്തൃനാമം എന്റർ ചെയ്യുക</string>
+    <string name="resetpass1">പതിവിൽ രജിസ്റ്റർ ചെയ്ത ഇമെയിൽ നൽകുക</string>
 
     <!--TextViews-->
     <string name="greeting">സ്വാഗതം!</string>
@@ -18,11 +20,15 @@
     <string name="login">ലോഗിൻ ചെയ്യുക</string>
     <string name="signup">സൈൻ അപ്പ് ചെയ്യുക</string>
     <string name="reset">ഇവിടെ റീസെറ്റ് ചെയ്യുക</string>
+    <string name="forgotUsername">ഉപയോക്തൃനാമം ഓർക്കുന്നില്ലേ?</string>
+    <string name="enterEmail">ഇമെയിൽ നൽകുക</string>
 
     <!--Buttons-->
     <string name="loginBtn">ലോഗിൻ ചെയ്യുക</string>
     <string name="signupBtn">സൈൻ അപ്പ് ചെയ്യുക</string>
     <string name="getStarted">ആരംഭിക്കുക</string>
+    <string name="submit">സമർപ്പിക്കുക</string>
+    <string name="resetPasswordBtn">പാസ്വേഡ് റീസെറ്റ് ചെയ്യുക</string>
 
     <!--Toast-->
     <string name="fields_empty_error">പദ്യങ്ങൾ ശൂന്യമായിരിക്കരുത്</string>
@@ -30,4 +36,10 @@
     <!--Error-->
     <string name="username_empty_error">*ദയവായി യൂസർനെയിം നൽകുക</string>
     <string name="password_empty_error">*ദയവായി പാസ്വേഡ് നൽകുക</string>
+    <string name="email_empty_error">*ഇമെയിൽ നൽകുക</string>
+    <string name="confirm_password_empty_error">*കാസ്സ്‌വേര്‍ഡ് അടിയുറച്ച് പാസ്സ്‌വേര്ഡ് നൽകുക</string>
+    <string name="shortcut_request">ദയവായി ഞങ്ങൾക്ക് മെച്ചപ്പെടുത്താനുള്ള ഒരു അവസരം നൽകുക</string>
+    <string name="request">അഭ്യർത്ഥന</string>
+    <string name="navigate_main">പ്രധാന പ്രവർത്തി</string>
+    <string name="navigate_login">ലോഗിൻ പ്രവർത്തനം</string>
 </resources>
