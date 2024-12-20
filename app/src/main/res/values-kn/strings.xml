@@ -42,5 +42,7 @@
     <string name="request">ಅನುರೋಧ</string>
     <string name="navigate_main">ಪ್ರಮುಖ ಚಟುವಟಿಕೆ</string>
     <string name="navigate_login">ಲಾಗಿನ್ ಚಟುವಟಿಕೆ</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
 
 </resources>

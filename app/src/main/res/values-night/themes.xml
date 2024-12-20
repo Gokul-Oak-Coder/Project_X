@@ -21,4 +21,9 @@
     <style name="TextColor"><item name="android:color">@color/my_gray</item></style>
     <style name="ImageTint"><item name="android:tint">@color/my_gray</item></style>
 
+    <style name="CircularImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

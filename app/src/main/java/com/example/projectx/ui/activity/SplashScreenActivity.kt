@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog
 import com.example.projectx.R
 import com.example.projectx.BuildConfig
 import com.example.projectx.databinding.ActivitySplashScreenBinding
+import com.example.projectx.util.PreferenceUtil
 import com.example.projectx.util.ViewUtils.Companion.loadLocale
 import com.example.projectx.util.ViewUtils.Companion.setLocale
 import com.example.projectx.util.ViewUtils.Companion.startActivity
@@ -40,6 +41,16 @@ class SplashScreenActivity : AppCompatActivity() {
         loadLocale(this)
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+
+        if (PreferenceUtil.isLoggedIn(this)) {
+            // If logged in, navigate directly to the main screen
+            goToMainScreen()
+        } else {
+            // If not logged in, show the login screen
+            goToLoginScreen()
+        }
 
         // Shortcut Manager for managing the shortcuts
         var shortcutManager = getSystemService(ShortcutManager::class.java)
@@ -67,9 +78,6 @@ class SplashScreenActivity : AppCompatActivity() {
             startActivity(LogInActivity::class.java)
             finish()
         }
-        binding.langTrans.setOnClickListener {
-            showLanguageSelectionDialog()
-        }
 
         binding.projectName.text = resources.getText(R.string.app_name)
         val version = BuildConfig.VERSION_NAME
@@ -79,33 +87,13 @@ class SplashScreenActivity : AppCompatActivity() {
             startActivity(MainActivity::class.java)
         }
     }
-
-    private fun showLanguageSelectionDialog() {
-        val languages = arrayOf(
-            "English",
-            "தமிழ் (Tamil)",
-            "മലയാളം (Malayalam)",
-            "తెలుగు (Telugu)",
-            "ಕನ್ನಡ (Kannada)",
-            "हिन्दी (Hindi)",
-            "Español (Spanish)"
-        )
-        val localCodes = arrayOf("en", "ta", "ml", "te", "kn", "hi", "es")
-
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Select Language")
-        builder.setItems(languages) { dialog, which ->
-            val selectedLanguageCode = localCodes[which]
-            changeLocale(selectedLanguageCode)
-        }
-        builder.show()
+    private fun goToMainScreen() {
+        this.startActivity(MainActivity::class.java)
+        finish()
     }
-
-    private fun changeLocale(languageCode: String) {
-        //   setLocale(this, languageCode)
-        setLocale(this, languageCode)
-
-        recreate()
+    private fun goToLoginScreen() {
+        this.startActivity(LogInActivity::class.java)
+        finish()
     }
 
 }

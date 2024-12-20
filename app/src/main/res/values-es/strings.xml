@@ -42,4 +42,6 @@
     <string name="request">solicitar</string>
     <string name="navigate_main">Actividad Principal</string>
     <string name="navigate_login">Actividad de inicio de sesión</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
 </resources>
