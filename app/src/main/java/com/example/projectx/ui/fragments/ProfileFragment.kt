@@ -129,10 +129,12 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
         ActivityCompat.recreate(requireActivity())
     }
-    private fun checkPermissionAndInitiateCall(){
+
+    private fun checkPermissionAndInitiateCall() {
         // Check if the app has permission to make a call
         if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
-            == PackageManager.PERMISSION_GRANTED) {
+            == PackageManager.PERMISSION_GRANTED
+        ) {
             initiateCall()
         } else {
             // Request the permission if not granted
@@ -143,7 +145,8 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             )
         }
     }
-    private fun initiateCall(){
+
+    private fun initiateCall() {
         val intent = Intent(Intent.ACTION_DIAL).apply {
             data = Uri.parse(HELP_LINE_NO)
         }
@@ -157,10 +160,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode == REQUEST_CODE_HELP_LINE_CALL){
-            if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        if (requestCode == REQUEST_CODE_HELP_LINE_CALL) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 initiateCall()
-            }else{
+            } else {
                 requireActivity().toast("Permission denied to make calls")
             }
         }
