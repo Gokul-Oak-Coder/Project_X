@@ -6,6 +6,8 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.widget.Toast
 import android.content.res.Configuration
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Build
 import android.view.LayoutInflater
@@ -16,7 +18,9 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import com.example.projectx.R
 import com.google.android.material.snackbar.Snackbar
+import java.io.ByteArrayOutputStream
 import java.util.*
+import android.util.Base64
 
 class ViewUtils {
 
@@ -85,6 +89,18 @@ class ViewUtils {
             toast.view = layout
             toast.duration = LENGTH_SHORT
             toast.show()
+        }
+
+        fun encodeImageToBase64(bitmap: Bitmap): String{
+            val byteArrayOutputStream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
+            val byteArray = byteArrayOutputStream.toByteArray()
+            return Base64.encodeToString(byteArray, Base64.DEFAULT)
+        }
+
+        fun decodeBase64ToBitmap(base64String: String): Bitmap{
+            val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
+            return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
         }
     }
 

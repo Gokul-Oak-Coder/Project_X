@@ -42,4 +42,6 @@
     <string name="request">अनुरोध</string>
     <string name="navigate_main">मुख्य गतिविधि</string>
     <string name="navigate_login">लॉगिन गतिविधि</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
 </resources>

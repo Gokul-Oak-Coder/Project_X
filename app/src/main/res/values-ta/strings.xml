@@ -42,4 +42,6 @@
     <string name="request">விண்ணப்பம்</string>
     <string name="navigate_main">பிரதான செயலி</string>
     <string name="navigate_login">உள்நுழைவு செயலி</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
 </resources>

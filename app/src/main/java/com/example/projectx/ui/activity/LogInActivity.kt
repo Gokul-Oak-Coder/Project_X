@@ -1,5 +1,7 @@
 package com.example.projectx.ui.activity
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,6 +20,7 @@ import com.example.projectx.network.NetworkHelper
 import com.example.projectx.network.Resource
 import com.example.projectx.repository.AuthRepository
 import com.example.projectx.requests.LoginRequest
+import com.example.projectx.util.PreferenceUtil
 import com.example.projectx.util.ViewUtils.Companion.showCustomToast
 import com.example.projectx.util.ViewUtils.Companion.startActivity
 import com.example.projectx.util.ViewUtils.Companion.toast
@@ -82,7 +85,6 @@ class LogInActivity : AppCompatActivity() {
             startActivity(PasswordResetActivity::class.java)
         }
     }
-
     private fun initViewModel() {
         val authRepository = AuthRepository()
         val viewModelProviderFactory = AuthViewModelFactory(authRepository, networkHelper)
@@ -111,10 +113,8 @@ class LogInActivity : AppCompatActivity() {
                     // Hide loading spinner and show success message
                     binding.loadingProgressBar.visibility = View.GONE
                     binding.loginBtn.isEnabled = true
+                    onLoginSuccess()
                     this.showCustomToast("${resource.data?.message}", R.drawable.success, R.color.success_green)
-                    this.startActivity(MainActivity::class.java)
-                    intent.putExtra("user", username)
-                    finish()
                 }
 
                 is Resource.Error -> {
@@ -131,21 +131,12 @@ class LogInActivity : AppCompatActivity() {
             }
         })
     }
-   /* private fun showCustomToast(message: String) {
-        // Inflate the custom layout
-        val inflater = layoutInflater
-        val layout = inflater.inflate(R.layout.custom_toast, findViewById(com.google.android.material.R.id.container))
+    private fun onLoginSuccess() {
+        // Set the user as logged in
+        PreferenceUtil.setLoggedIn(this, true)
 
-        // Set the message in the TextView
-        val textView = layout.findViewById<TextView>(R.id.toast_message)
-        textView.text = message
-
-        // Create a new Toast and set the custom layout
-        val toast = Toast(applicationContext)
-        toast.duration = Toast.LENGTH_LONG
-        toast.view = layout
-
-        // Show the custom toast
-        toast.show()
-    }*/
+        this.startActivity(MainActivity::class.java)
+        intent.putExtra("user", username)
+        finish()
+    }
 }

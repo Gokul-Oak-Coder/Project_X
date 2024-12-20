@@ -42,5 +42,7 @@
     <string name="request">అనురోధం</string>
     <string name="navigate_main">ప్రధాన కార్యకలాపం</string>
     <string name="navigate_login">లాగిన్ కార్యకలాపం</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
 
 </resources>

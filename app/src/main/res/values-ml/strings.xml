@@ -42,4 +42,6 @@
     <string name="request">അഭ്യർത്ഥന</string>
     <string name="navigate_main">പ്രധാന പ്രവർത്തി</string>
     <string name="navigate_login">ലോഗിൻ പ്രവർത്തനം</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
 </resources>
