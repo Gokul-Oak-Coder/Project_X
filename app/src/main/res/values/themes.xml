@@ -42,4 +42,13 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+
+
+    <color name="alertDialogTitleTextColor">@color/black
+    </color> <!-- Light theme title text color -->
+    <color name="alertDialogMessageTextColor">@color/black
+    </color> <!-- Light theme message text color -->
+    <color name="alertDialogButtonTextColor">@color/blue
+    </color> <!-- Light theme button text color -->
+
 </resources>
