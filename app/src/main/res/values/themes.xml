@@ -22,12 +22,20 @@
         <item name="android:background">@color/white</item>
     </style>
 
+    <style name="BottomNavBackground">
+        <item name="android:background">@color/white</item>
+    </style>
+
     <style name="TextColor">
         <item name="android:color">@color/white</item>
     </style>
 
     <style name="ImageTint">
         <item name="android:tint">@color/black</item>
+    </style>
+
+    <style name="ButtonTint">
+        <item name="android:textColor">@color/my_gray</item>
     </style>
 
     <style name="CircularImageView">

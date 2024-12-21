@@ -30,6 +30,10 @@ import com.example.projectx.util.ViewUtils
 import com.example.projectx.util.ViewUtils.Companion.encodeImageToBase64
 import com.example.projectx.util.ViewUtils.Companion.toast
 import com.google.android.material.imageview.ShapeableImageView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
@@ -38,17 +42,31 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private val pickImage =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
             uri?.let {
-                // Convert the Uri to Bitmap
-                val bitmap = MediaStore.Images.Media.getBitmap(requireContext().contentResolver, it)
-                // Encode the Bitmap to Base64
-                val encodedImage = encodeImageToBase64(bitmap)
-                // Save the encoded image to SharedPreferences
-                saveProfileImage(requireContext(), encodedImage)
-                // Load the image into the ImageView
-                Glide.with(this)
-                    .load(uri)
-                    .circleCrop() // Apply circular crop
-                    .into(profileImageView)
+
+                CoroutineScope(Dispatchers.Main).launch {
+                    try {
+                        // Convert the Uri to Bitmap
+                        val bitmap = withContext(Dispatchers.IO) {
+                            MediaStore.Images.Media.getBitmap(requireContext().contentResolver, it)
+                        }
+                        // Encode the Bitmap to Base64
+                        val encodedImage = withContext(Dispatchers.IO) {
+                            encodeImageToBase64(bitmap)
+                        }
+                        // Save the encoded image to SharedPreferences
+                        withContext(Dispatchers.IO) {
+                            saveProfileImage(requireContext(), encodedImage)
+                        }
+
+                        // Load the image into the ImageView
+                        Glide.with(this@ProfileFragment).load(uri)
+                            .circleCrop() // Apply circular crop
+                            .into(profileImageView)
+
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
             }
         }
 
@@ -64,10 +82,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
         val savedImage = loadProfileImage(requireContext())
         savedImage?.let {
-            Glide.with(this)
-                .load(it)
-                .circleCrop()
-                .into(profileImageView)
+            Glide.with(this).load(it).circleCrop().into(profileImageView)
         }
         profileImageView.setOnClickListener {
             // Open the device gallery to pick an image
@@ -132,8 +147,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private fun checkPermissionAndInitiateCall() {
         // Check if the app has permission to make a call
-        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
-            == PackageManager.PERMISSION_GRANTED
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.CALL_PHONE
+            ) == PackageManager.PERMISSION_GRANTED
         ) {
             initiateCall()
         } else {
@@ -155,9 +172,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     }
 
     override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
+        requestCode: Int, permissions: Array<out String>, grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_HELP_LINE_CALL) {
@@ -175,8 +190,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             .setCancelable(false) // Prevents dismissing the dialog if clicked outside
             .setPositiveButton("Yes") { dialog, id ->
                 onLogout()
-            }
-            .setNegativeButton("No") { dialog, id ->
+            }.setNegativeButton("No") { dialog, id ->
                 dialog.dismiss()
             }
         val alert = builder.create()

@@ -91,14 +91,14 @@ class ViewUtils {
             toast.show()
         }
 
-        fun encodeImageToBase64(bitmap: Bitmap): String{
+        fun encodeImageToBase64(bitmap: Bitmap): String {
             val byteArrayOutputStream = ByteArrayOutputStream()
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
             val byteArray = byteArrayOutputStream.toByteArray()
             return Base64.encodeToString(byteArray, Base64.DEFAULT)
         }
 
-        fun decodeBase64ToBitmap(base64String: String): Bitmap{
+        fun decodeBase64ToBitmap(base64String: String): Bitmap {
             val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
             return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
         }
