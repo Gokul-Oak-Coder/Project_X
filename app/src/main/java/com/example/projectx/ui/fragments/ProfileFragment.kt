@@ -12,12 +12,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Switch
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.projectx.R
 import com.example.projectx.ui.activity.LogInActivity
@@ -186,7 +188,14 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private fun showLogoutDialog() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setMessage("Are you sure you want to logout?")
+
+        //Get the colors defined in the current theme (light or dark)
+        val titleColor = ContextCompat.getColor(requireContext(), R.color.alertDialogTitleTextColor)
+        val messageColor = ContextCompat.getColor(requireContext(), R.color.alertDialogMessageTextColor)
+        val buttonColor = ContextCompat.getColor(requireContext(), R.color.alertDialogButtonTextColor)
+
+        builder.setTitle("Logout")
+            .setMessage("Are you sure you want to logout?")
             .setCancelable(false) // Prevents dismissing the dialog if clicked outside
             .setPositiveButton("Yes") { dialog, id ->
                 onLogout()
@@ -194,6 +203,23 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 dialog.dismiss()
             }
         val alert = builder.create()
+
+        // Set the title, message, and button text colors
+        alert.setOnShowListener {
+            val positiveButton = alert.getButton(AlertDialog.BUTTON_POSITIVE)
+            val negativeButton = alert.getButton(AlertDialog.BUTTON_NEGATIVE)
+
+            // Set title color (Optional: AlertDialog title text might be hard to change directly)
+            alert.findViewById<TextView>(android.R.id.title)?.setTextColor(titleColor)
+
+            // Set message text color
+            alert.findViewById<TextView>(android.R.id.message)?.setTextColor(messageColor)
+
+            // Set button text colors
+            positiveButton.setTextColor(buttonColor)
+            negativeButton.setTextColor(buttonColor)
+        }
+
         alert.show()
     }
 
